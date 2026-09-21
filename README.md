@@ -21,5 +21,5 @@ A modern and responsive personal portfolio website built to showcase my skills, 
 
 ## 🚀 Live Demo
 
-🔗 [View My Portfolio](https://my-portfolio-mu-teal-68.vercel.app/)
+🔗 [My Portfolio](https://my-portfolio-mu-teal-68.vercel.app/)
 
