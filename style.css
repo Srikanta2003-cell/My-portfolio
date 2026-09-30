@@ -317,8 +317,8 @@ span {
 }
 
 .skill-card img {
-    width:90px;
-    height: 90px;
+    width: 95px;
+    height: 95px;
 
     object-fit: contain;
 
@@ -328,8 +328,8 @@ span {
 }
 
 .skill-icon {
-    width: 70px;
-    height: 80px;
+    width: 80px;
+    height: 95px;
 
     margin: 0 auto 15px;
 
