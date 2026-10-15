@@ -12,9 +12,8 @@ html {
 
 body {
     font-family: "Inter", sans-serif;
-    background: #66b2ddf8;
-    color: #fffafe;
-    line-height: 1.7;
+    color: #f6f6ff;
+    line-height: 1.9;
 }
 
 section {
@@ -22,20 +21,25 @@ section {
 }
 
 span {
-    color: #2836d7;
+    
+       background: linear-gradient(90deg, #26dae3, #180cf7, #26dae3);
+        background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+       
 }
 
 
 /* ================= NAVBAR ================= */
 
 .custom-navbar {
-    background: rgba(8, 11, 20, 0.85);
+    background: rgba(0, 0, 0, 0.97);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .navbar-brand {
@@ -55,14 +59,14 @@ span {
 
 
 .nav-link {
-    color: #d9dce7 !important;
+    color: #d9b832ee !important;
     margin-left: 10px;
     font-weight: 400;
     transition: 0.1s;
 }
 
 .nav-link:hover {
-    color: #ffffff !important;
+    color: #22e325 !important;
 }
 
 
@@ -515,6 +519,7 @@ experience-header {
 
 .project-card {
     height: 100%;
+    width: 100%;
 
     background: #111625;
 
@@ -538,7 +543,7 @@ experience-header {
 
 .project-card > img {
     width: 100%;
-    height: 300px;
+    height: 230px;
 
     object-fit: cover;
 
