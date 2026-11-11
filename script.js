@@ -1,56 +1,87 @@
-```javascript
 // ================= CONTACT FORM =================
 
 const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", function (event) {
+if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    event.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const messageError = document.getElementById("messageError");
+        const successMessage = document.getElementById("successMessage");
 
-    const nameError = document.getElementById("nameError");
-    const emailError = document.getElementById("emailError");
-    const messageError = document.getElementById("messageError");
-    const successMessage = document.getElementById("successMessage");
+        // Clear previous messages
+        nameError.textContent = "";
+        emailError.textContent = "";
+        messageError.textContent = "";
+        successMessage.textContent = "";
 
-    nameError.textContent = "";
-    emailError.textContent = "";
-    messageError.textContent = "";
-    successMessage.textContent = "";
+        let isValid = true;
 
-    let valid = true;
+        // Name validation
+        if (name === "") {
+            nameError.textContent = "Please enter your name.";
+            isValid = false;
+        }
 
-    if (name === "") {
-        nameError.textContent = "Please enter your name.";
-        valid = false;
-    }
+        // Email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (email === "") {
-        emailError.textContent = "Please enter your email.";
-        valid = false;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        emailError.textContent = "Please enter a valid email.";
-        valid = false;
-    }
+        if (email === "") {
+            emailError.textContent = "Please enter your email.";
+            isValid = false;
+        } else if (!emailPattern.test(email)) {
+            emailError.textContent = "Please enter a valid email address.";
+            isValid = false;
+        }
 
-    if (message === "") {
-        messageError.textContent = "Please enter your message.";
-        valid = false;
-    }
+        // Message validation
+        if (message === "") {
+            messageError.textContent = "Please enter your message.";
+            isValid = false;
+        }
 
-    if (valid) {
+        // Open the visitor's email application
+        if (isValid) {
+            const subject = encodeURIComponent("Portfolio Contact Message");
 
-        successMessage.textContent =
-            "Thank you! Your message has been submitted successfully.";
+            const body = encodeURIComponent(
+                `Name: ${name}\n` +
+                `Email: ${email}\n\n` +
+                `Message:\n${message}`
+            );
 
-        successMessage.className =
-            "text-success text-center mt-3";
+            const mailtoLink =
+                `mailto:sahusrikant588@gmail.com?subject=${subject}&body=${body}`;
 
-        contactForm.reset();
-    }
+            successMessage.textContent =
+                "Your email application will open with your message. Please send it there.";
 
+            window.location.href = mailtoLink;
+        }
+    });
+}
+
+
+// ================= NAVBAR AUTO CLOSE =================
+
+const navbarLinks = document.querySelectorAll(".navbar-nav .nav-link");
+const navbarCollapse = document.getElementById("navbarNav");
+
+navbarLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+        if (
+            navbarCollapse &&
+            navbarCollapse.classList.contains("show")
+        ) {
+            bootstrap.Collapse
+                .getOrCreateInstance(navbarCollapse)
+                .hide();
+        }
+    });
 });
-```
